@@ -347,8 +347,8 @@ class CodeEditor : WebView {
         loadUrl("javascript:editor.insert(\"$text\");")
     }
 
-    fun getText() : String? {
-        var textResult: String? = null
+    fun getText() : String {
+        var textResult = ""
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             evaluateJavascript("javascript:editor.getValue();") { text ->
                 textResult = text
@@ -434,7 +434,7 @@ class CodeEditor : WebView {
         findString = null
     }
 
-    fun setSoftWrap(enabled: Boolean = true) {
+    fun setSoftWrap(enabled: Boolean) {
         if (enabled) loadUrl("javascript:editor.getSession().setUseWrapMode(true);") else loadUrl("javascript:editor.getSession().setUseWrapMode(false);")
     }
 
