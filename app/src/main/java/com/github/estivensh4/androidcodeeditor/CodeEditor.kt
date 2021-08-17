@@ -434,10 +434,6 @@ class CodeEditor : WebView {
         findString = null
     }
 
-    fun setSoftWrap(enabled: Boolean) {
-        if (enabled) loadUrl("javascript:editor.getSession().setUseWrapMode(true);") else loadUrl("javascript:editor.getSession().setUseWrapMode(false);")
-    }
-
     fun setTheme(theme: Theme) {
         loadUrl("javascript:editor.setTheme(\"ace/theme/${theme.name.lowercase(Locale.getDefault())}\");")
     }
