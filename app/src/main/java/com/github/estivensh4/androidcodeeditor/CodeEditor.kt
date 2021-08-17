@@ -434,12 +434,16 @@ class CodeEditor : WebView {
         findString = null
     }
 
+    fun setSoftWrap(enabled: Boolean) {
+        if (enabled) loadUrl("javascript:editor.getSession().setUseWrapMode(true);") else loadUrl("javascript:editor.getSession().setUseWrapMode(false);")
+    }
+
     fun setTheme(theme: Theme) {
         loadUrl("javascript:editor.setTheme(\"ace/theme/${theme.name.lowercase(Locale.getDefault())}\");")
     }
 
     fun language(language: Language) {
-        loadUrl("javascript:editor.session.setMode(\"ace/mode/${language.name.lowercase(Locale.getDefault())}\");")
+        loadUrl("javascript:editor.getSession().setMode(\"ace/mode/${language.name.lowercase(Locale.getDefault())}\");")
     }
 
     fun setTouchAction(action: Int) {
