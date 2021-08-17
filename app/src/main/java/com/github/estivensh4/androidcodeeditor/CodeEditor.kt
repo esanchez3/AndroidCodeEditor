@@ -439,11 +439,11 @@ class CodeEditor : WebView {
     }
 
     fun setTheme(theme: Theme) {
-        loadUrl("javascript:editor.setTheme(\"ace/theme/ ${theme.name.lowercase(Locale.getDefault())} \");")
+        loadUrl("javascript:editor.setTheme(\"ace/theme/${theme.name.lowercase(Locale.getDefault())}\");")
     }
 
     fun language(language: Language) {
-        loadUrl("javascript:editor.session.setMode(\"ace/mode/ ${language.name.lowercase(Locale.getDefault())} \");")
+        loadUrl("javascript:editor.session.setMode(\"ace/mode/${language.name.lowercase(Locale.getDefault())}\");")
     }
 
     fun setTouchAction(action: Int) {
