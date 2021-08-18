@@ -359,7 +359,7 @@ class CodeEditor : WebView {
 
     fun requestRowCount() {
         requestedValue = Request.ROW_COUNT_REQUEST
-        loadUrl("javascript:alert(editor.session.getLength());")
+        loadUrl("javascript:alert(editor.getSession().getLength());")
     }
 
     fun requestSelectedText() {
@@ -374,12 +374,12 @@ class CodeEditor : WebView {
 
     fun requestLine(lineNumber: Int) {
         requestedValue = Request.TEXT_REQUEST
-        loadUrl("javascript:alert(editor.session.getLine($lineNumber));")
+        loadUrl("javascript:alert(editor.getSession().getLine($lineNumber));")
     }
 
     fun requestLinesBetween(startLine: Int, endLine: Int) {
         requestedValue = Request.MULTIPLE_LINES_REQUEST
-        loadUrl("javascript:alert(JSON.stringify(editor.session.getLines($startLine, $endLine)));")
+        loadUrl("javascript:alert(JSON.stringify(editor.getSession().getLines($startLine, $endLine)));")
     }
 
     fun startFind(
