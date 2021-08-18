@@ -17,6 +17,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.PopupWindow
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -347,12 +348,11 @@ class CodeEditor : WebView {
         loadUrl("javascript:editor.insert(\"$text\");")
     }
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     fun getText() : String {
         var textResult = ""
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            evaluateJavascript("javascript:editor.getValue();") { text ->
-                textResult = text
-            }
+        evaluateJavascript("javascript:editor.getValue();") { text ->
+            textResult = text
         }
         return textResult
     }
