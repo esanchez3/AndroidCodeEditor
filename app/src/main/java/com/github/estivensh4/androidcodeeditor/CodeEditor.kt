@@ -348,7 +348,7 @@ class CodeEditor : WebView {
         loadUrl("javascript:editor.insert(\"$text\");")
     }
 
-    @RequiresApi(Build.VERSION_CODES.KITKAT)
+    @SuppressLint("NewApi")
     fun getText() : String {
         var textResult = ""
         evaluateJavascript("javascript:editor.getValue();") { text ->
