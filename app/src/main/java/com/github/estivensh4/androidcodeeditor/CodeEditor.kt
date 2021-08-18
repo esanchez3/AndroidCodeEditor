@@ -336,7 +336,7 @@ class CodeEditor : WebView {
     }
 
     fun setText(text: String) {
-        loadUrl("javascript:editor.session.setValue(\"$text\");")
+        loadUrl("javascript:editor.getSession().setValue(\"$text\");")
     }
 
     fun setFontSize(size: Int) {
