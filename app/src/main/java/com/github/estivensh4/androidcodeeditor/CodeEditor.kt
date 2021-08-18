@@ -11,10 +11,7 @@ import android.view.*
 import android.view.inputmethod.BaseInputConnection
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
-import android.webkit.JsResult
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -22,6 +19,7 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
+
 
 class CodeEditor : WebView {
 
@@ -345,10 +343,10 @@ class CodeEditor : WebView {
     }
 
     fun insertTextAtCursor(text: String) {
-        loadUrl("javascript:editor.insert(\"$text\");")
+        loadUrl("javascript:editor.getSession().insert(editor.getCursorPosition(), \"$text\");")
     }
 
-    @SuppressLint("NewApi")
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     fun getText() : String {
         var textResult = ""
         evaluateJavascript("javascript:editor.getValue();") { text ->
@@ -356,6 +354,7 @@ class CodeEditor : WebView {
         }
         return textResult
     }
+
 
     fun requestRowCount() {
         requestedValue = Request.ROW_COUNT_REQUEST
