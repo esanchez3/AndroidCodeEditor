@@ -618,7 +618,9 @@ class CodeEditor : WebView {
         VHDL,
         XML,
         XQuery,
-        YAML
+        YAML,
+        Kotlin,
+        Swift
     }
 
     companion object {
