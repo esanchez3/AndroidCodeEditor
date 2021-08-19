@@ -13,6 +13,16 @@
             width: 100%;
             height: 100%;
         }
+
+        .ace_gutter-layer {
+            /* original width is 48px */
+            width: 28px !important;
+        }
+
+        .ace_gutter-layer>* {
+            /* 48 - 32 = 16 */
+            margin-left: -20px;
+        }
     </style>
 </head>
 <body>
