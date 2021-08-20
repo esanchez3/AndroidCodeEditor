@@ -38,7 +38,7 @@ dependencies {
 #### Kotlin
 Demo Activity:
 ```kotlin
-class PlaygroundActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
