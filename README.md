@@ -22,7 +22,7 @@ allprojects {
 #### build.gradle (app)
 ```groovy
 dependencies {
-    implementation 'com.github.estivensh4:AndroidCodeEditor:1.2.1'
+    implementation 'com.github.estivensh4:AndroidCodeEditor:1.2.3'
 }
 ```
 
@@ -52,7 +52,7 @@ class PlaygroundActivity : AppCompatActivity() {
                 with(binding){
                     editor.setTheme(CodeEditor.Theme.TOMORROW)
                     editor.language(CodeEditor.Language.PHP)
-                    // o editor.language("php")
+                    // o editor.languageString("php")
                     editor.setText("<?php\n" +
                             "\n" +
                             "?>")

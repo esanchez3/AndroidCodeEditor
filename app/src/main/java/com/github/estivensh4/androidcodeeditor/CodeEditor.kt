@@ -445,7 +445,7 @@ class CodeEditor : WebView {
         loadUrl("javascript:editor.getSession().setMode(\"ace/mode/${language.name.lowercase(Locale.getDefault())}\");")
     }
 
-    fun language(language: String) {
+    fun languageString(language: String) {
         loadUrl("javascript:editor.getSession().setMode(\"ace/mode/${language.lowercase(Locale.getDefault())}\");")
     }
 
