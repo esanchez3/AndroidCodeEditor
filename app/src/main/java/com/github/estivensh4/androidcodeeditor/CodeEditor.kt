@@ -445,6 +445,10 @@ class CodeEditor : WebView {
         loadUrl("javascript:editor.getSession().setMode(\"ace/mode/${language.name.lowercase(Locale.getDefault())}\");")
     }
 
+    fun language(language: String) {
+        loadUrl("javascript:editor.getSession().setMode(\"ace/mode/${language.lowercase(Locale.getDefault())}\");")
+    }
+
     fun setTouchAction(action: Int) {
         if (action == ACTION_SCROLL) setOnTouchListener(scroller) else setOnTouchListener(selector)
     }
