@@ -1,10 +1,10 @@
-ace.define("ace/mode/python_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module) {
+ace.define("ace/mode/python3_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var PythonHighlightRules = function() {
+var python3HighlightRules = function() {
 
     var keywords = (
         "and|as|assert|break|class|continue|def|del|elif|else|except|exec|" +
@@ -149,12 +149,12 @@ var PythonHighlightRules = function() {
     };
 };
 
-oop.inherits(PythonHighlightRules, TextHighlightRules);
+oop.inherits(python3HighlightRules, TextHighlightRules);
 
-exports.PythonHighlightRules = PythonHighlightRules;
+exports.python3HighlightRules = python3HighlightRules;
 });
 
-ace.define("ace/mode/folding/pythonic",["require","exports","module","ace/lib/oop","ace/mode/folding/fold_mode"], function(require, exports, module) {
+ace.define("ace/mode/folding/python3ic",["require","exports","module","ace/lib/oop","ace/mode/folding/fold_mode"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../../lib/oop");
@@ -183,18 +183,18 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
-ace.define("ace/mode/python",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/python_highlight_rules","ace/mode/folding/pythonic","ace/range"], function(require, exports, module) {
+ace.define("ace/mode/python3",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/python3_highlight_rules","ace/mode/folding/python3ic","ace/range"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
-var PythonHighlightRules = require("./python_highlight_rules").PythonHighlightRules;
-var PythonFoldMode = require("./folding/pythonic").FoldMode;
+var python3HighlightRules = require("./python3_highlight_rules").python3HighlightRules;
+var python3FoldMode = require("./folding/python3ic").FoldMode;
 var Range = require("../range").Range;
 
 var Mode = function() {
-    this.HighlightRules = PythonHighlightRules;
-    this.foldingRules = new PythonFoldMode("\\:");
+    this.HighlightRules = python3HighlightRules;
+    this.foldingRules = new python3FoldMode("\\:");
     this.$behaviour = this.$defaultBehaviour;
 };
 oop.inherits(Mode, TextMode);
@@ -258,7 +258,7 @@ oop.inherits(Mode, TextMode);
             doc.remove(new Range(row, indent.length-tab.length, row, indent.length));
     };
 
-    this.$id = "ace/mode/python";
+    this.$id = "ace/mode/python3";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;

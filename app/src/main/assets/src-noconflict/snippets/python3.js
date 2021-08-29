@@ -1,4 +1,4 @@
-ace.define("ace/snippets/python",["require","exports","module"], function(require, exports, module) {
+ace.define("ace/snippets/python3",["require","exports","module"], function(require, exports, module) {
 "use strict";
 
 exports.snippetText = "snippet #!\n\
@@ -160,6 +160,6 @@ snippet getopt\n\
 		elif option in (\"-v\", \"--verbose\"):\n\
 			verbose = argument\n\
 ";
-exports.scope = "python";
+exports.scope = "python3";
 
 });
